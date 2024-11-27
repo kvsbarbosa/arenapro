@@ -39,6 +39,7 @@ public class UsuarioService {
 
     }
 
+
     public UsuarioDTO update(Long id, UsuarioDTO usuarioDTO) {
 
         try {
