@@ -4,14 +4,13 @@ import com.web2.arenapro.application.services.exceptions.DatabaseException;
 import com.web2.arenapro.application.services.exceptions.ResourceNotFoundException;
 import com.web2.arenapro.domain.entities.Usuario;
 import com.web2.arenapro.domain.repositories.UsuarioRepository;
-import com.web2.arenapro.dto.UsuarioDTO;
+import com.web2.arenapro.domain.dto.UsuarioDTO;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioService {
@@ -19,7 +18,7 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    // @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public UsuarioDTO findById(Long id) {
         Usuario usuario = usuarioRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Id não encontrado")
@@ -39,7 +38,7 @@ public class UsuarioService {
 
     }
 
-
+    @Transactional
     public UsuarioDTO update(Long id, UsuarioDTO usuarioDTO) {
 
         try {
@@ -56,7 +55,8 @@ public class UsuarioService {
 
     }
 
-    //@Transactional(propagation = Propagation.SUPPORTS)
+
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
 
         if (!usuarioRepository.existsById(id)) {
