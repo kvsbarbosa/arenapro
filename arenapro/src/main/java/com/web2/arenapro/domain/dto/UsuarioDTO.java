@@ -1,4 +1,4 @@
-package com.web2.arenapro.dto;
+package com.web2.arenapro.domain.dto;
 
 import com.web2.arenapro.domain.entities.Usuario;
 import jakarta.validation.constraints.Email;

@@ -1,8 +1,7 @@
 package com.web2.arenapro.application.controllers;
 
 import com.web2.arenapro.application.services.UsuarioService;
-import com.web2.arenapro.domain.entities.Usuario;
-import com.web2.arenapro.dto.UsuarioDTO;
+import com.web2.arenapro.domain.dto.UsuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
