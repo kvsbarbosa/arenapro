@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Setter
@@ -21,14 +22,18 @@ public class ReservaDTO {
 
     private Long id;
 
-    @NotNull(message = "Usuário obrigatório")
-    private Long usuarioId;
-
     @NotNull(message = "Quadra obrigatória")
     private Long quadraId;
 
-    @NotNull(message = "Data e hora obrigatórias")
-    @Future(message = "A data e hora devem estar no futuro")
+    @NotNull(message = "Usuário obrigatório")
+    private Long usuarioId;
+
+    @NotNull(message = "Data obrigatória")
+    @Future(message = "A data deve estar no futuro")
+    private LocalDate data;
+
+    @NotNull(message = "Data hora obrigatórias")
+    @Future(message = "A data hora devem estar no futuro")
     private LocalTime horarioInicio;
 
     @NotNull(message = "Duração obrigatória")
