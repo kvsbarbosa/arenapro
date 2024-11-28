@@ -32,8 +32,8 @@ public class ReservaDTO {
     @Future(message = "A data deve estar no futuro")
     private LocalDate data;
 
-    @NotNull(message = "Data hora obrigatórias")
-    @Future(message = "A data hora devem estar no futuro")
+    @NotNull(message = "Data e a hora obrigatórias")
+    @Future(message = "A data e a hora devem estar no futuro")
     private LocalTime horarioInicio;
 
     @NotNull(message = "Duração obrigatória")
